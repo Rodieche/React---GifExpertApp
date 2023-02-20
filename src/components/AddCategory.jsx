@@ -11,9 +11,9 @@ export const AddCategory = ({ onNewCategory }) => {
     const onSubmit = (event) => {
         event.preventDefault();
         const value = inputValue.trim();
-        if (value.length < 1) return;
-        onNewCategory(value);
+        if (value.length <= 1) return;
         setInputValue('');
+        onNewCategory(value);
     };
 
     return (
@@ -22,6 +22,7 @@ export const AddCategory = ({ onNewCategory }) => {
             <input 
                 type="text"
                 placeholder="Buscar GIFs"
+                value={ inputValue }
                 onChange={onChangeHandler}
             />
         </form>
