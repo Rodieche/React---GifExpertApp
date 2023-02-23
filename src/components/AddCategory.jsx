@@ -1,6 +1,8 @@
 import { useState } from "react"
 
 export const AddCategory = ({ onNewCategory }) => {
+
+    const maxImagesShow = 20;
   
     const [inputValue, setInputValue] = useState('');
 
@@ -25,6 +27,15 @@ export const AddCategory = ({ onNewCategory }) => {
                 value={ inputValue }
                 onChange={onChangeHandler}
             />
+            <label for="limit">Cantidad de imagenes:</label>
+            <select id="limit" name="limit">
+                {[...Array(maxImagesShow)].map((x, i) => {
+                    console.log(typeof i, i)
+                    return <option key={i+1}>{i+1}</option>
+                })
+
+                }
+            </select>
         </form>
     </>
   )
